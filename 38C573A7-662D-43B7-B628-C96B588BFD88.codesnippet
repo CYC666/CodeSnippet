@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccfield</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    [self checkTFAction];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    [self checkTFAction];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    [self checkTFAction];
+    
+    return YES;
+}
+
+#pragma mark - 检测是否已经输入
+- (void)checkTFAction {
+    
+    if (kStringIsEmpty(_codeTF.text) || kStringIsEmpty(_mobileTF.text)) {
+        _loginButton.alpha = 0.5;
+        _loginButton.userInteractionEnabled = NO;
+    } else {
+        _loginButton.alpha = 1;
+        _loginButton.userInteractionEnabled = YES;
+    }
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>38C573A7-662D-43B7-B628-C96B588BFD88</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>检测Field是否输入</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccusernet</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - 获取用户信息
+- (void)loadUserInfoAction {
+    
+    [CNetwork GET:@{} method:@"user/profile" success:^(id  _Nonnull obj) {
+        
+        NSString *code = [NSString stringWithFormat:@"%@", obj[@"code"]];
+        
+        if ([code isEqualToString:@"200"]) {
+            
+            [UserInfoManager mj_objectWithKeyValues:obj[@"data"]];
+            
+            RCUserInfo *user = [[RCUserInfo alloc] initWithUserId:kUserInfo.user_id name:kUserInfo.user_name portrait:kUserInfo.image];
+            [RCIM sharedRCIM].currentUserInfo = user;
+            
+            [self updateUIAction];
+            
+        } else {
+            
+            [CNetwork showErrorWithCode:code];
+            
+        }
+        
+    } failse:^(id  _Nonnull obj) {
+        
+        SHOW_ERROR(RCDLocalizedString(@"network_can_not_use_please_check"))
+        
+    }];
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>53AC38D1-C1C2-4883-8713-A7C53BB4859F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>银河社区获取用户信息请求</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

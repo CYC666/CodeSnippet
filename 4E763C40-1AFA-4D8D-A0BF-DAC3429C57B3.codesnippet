@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccnavitem</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// 导航栏右边的添加按钮
+self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"&lt;#新增动态#&gt;" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = Label_Color_C;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:14],NSFontAttributeName, nil] forState:UIControlStateNormal];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4E763C40-1AFA-4D8D-A0BF-DAC3429C57B3</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>导航栏右边按钮-颜色大小</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

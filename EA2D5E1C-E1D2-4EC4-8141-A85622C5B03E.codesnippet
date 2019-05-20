@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccanimation</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+//创建CATransition对象
+CATransition *animation = [CATransition animation];
+//设置时间
+    animation.duration = 0.5f;
+    /*
+     kCATransitionFade                     //淡化效果
+     kCATransitionPush                        //推进效果
+     kCATransitionMoveIn                  //滑入效果
+     kCATransitionReveal                   //滑出效果
+     @"cube"                                      //立方体效果
+     @"suckEffect"                              //吮吸效果
+     @"oglFlip"                                    //翻转效果
+     @"rippleEffect"                             //波纹效果
+     @"pageCurl"                                //翻页效果
+     @"pageUnCurl"                           //反翻页效果
+     @"cameraIrisHollowOpen"          //开镜头效果
+     @"cameraIrisHollowClose"          //关镜头效果
+     */
+    //设置类型
+    animation.type = @"oglFlip";
+    
+    //设置方向
+    /*
+     */
+    animation.subtype = kCATransitionFromRight;
+    
+    //设置运动速度变化
+    animation.timingFunction = UIViewAnimationOptionCurveEaseInOut;
+    
+    [self.view.layer addAnimation:animation forKey:@"animation"];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>EA2D5E1C-E1D2-4EC4-8141-A85622C5B03E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>转场动画</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

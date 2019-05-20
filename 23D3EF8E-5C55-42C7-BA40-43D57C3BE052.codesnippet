@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccmxx</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>NSString *method = @"http://www.meixx.cn/appshop/shopcarList?m=1000&amp;manu=1000&amp;mach=DT001&amp;imei=866399037623864&amp;imsi=null&amp;VERS=6.5.0&amp;SJHM=null&amp;PMCC=1080X1980&amp;XTYY=zh&amp;XTBB=7.1.2&amp;OPER=0&amp;LWFS=1&amp;PROD=101&amp;appCode=MEIXX";
+    
+    [SOAPUrlSession SOAPNetworkGETWithMethod:method parameter:nil success:^(id responseObject) {
+        
+        NSDictionary *responseDic = responseObject;
+        NSString *flag = [NSString stringWithFormat:@"%@", responseDic[@"flag"]];
+        if (![flag isEqualToString:@"0"]) {
+            
+           
+            
+            
+        } else {
+            
+            FadeAlertView *showMessage = [[FadeAlertView alloc] init];
+            [showMessage showAlertWith:[NSString stringWithFormat:@"%@", responseDic[@"status"]]];
+            
+        }
+        
+        
+        
+    } failure:^(NSError *error) {
+        
+        FadeAlertView *showMessage = [[FadeAlertView alloc] init];
+        [showMessage showAlertWith:@"请求失败"];
+        
+    }];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>23D3EF8E-5C55-42C7-BA40-43D57C3BE052</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>美咻咻GET请求</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

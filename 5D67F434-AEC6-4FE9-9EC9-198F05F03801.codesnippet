@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccpay</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//私钥，微信需要的参数都拼接在这里了
+            //字段拼接样式：appid &amp; partnerid &amp; prepayid &amp; package=Sign=WXPay &amp; noncestr &amp; timestamp &amp; sign
+            NSString *privateKey = responseObject[@"Data"][@"PrivateKey"];
+            NSArray *firstSplits = [privateKey componentsSeparatedByString:@"&amp;"];
+
+            //拼接微信支付所需的参数
+            PayReq* req     = [[PayReq alloc] init];
+            req.partnerId   = [firstSplits[1] componentsSeparatedByString:@"="][1];
+            req.prepayId    = [firstSplits[2] componentsSeparatedByString:@"="][1];
+            req.nonceStr    = [firstSplits[4] componentsSeparatedByString:@"="][1];
+            req.timeStamp   = [[firstSplits[5] componentsSeparatedByString:@"="][1] intValue];
+            req.package     = @"Sign=WXPay";
+            req.sign        = [firstSplits[6] componentsSeparatedByString:@"="][1];
+
+            //发起微信支付请求
+            [WXApi sendReq:req];
+
+            //将从后台获取的订单信息中的金额保存起来
+            [WXApiManager sharedManager].rechargeMoney = [NSString stringWithFormat:@"%@", responseObject[@"Data"][@"OperateValue"]];
+            money = [NSString stringWithFormat:@"%@", responseObject[@"Data"][@"OperateValue"]];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5D67F434-AEC6-4FE9-9EC9-198F05F03801</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>支付-微信</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

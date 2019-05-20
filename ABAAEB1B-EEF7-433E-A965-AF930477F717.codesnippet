@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>cctipview</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>+ (instancetype)new {
+    
+    CTipView *view = [[[NSBundle mainBundle] loadNibNamed:@"&lt;#name#&gt;" owner:nil options:nil] firstObject];
+    view.frame = [UIScreen mainScreen].bounds;
+    [[UIApplication sharedApplication].keyWindow addSubview:view];
+    
+    return view;
+}
+
+- (void)awakeFromNib {
+    
+    [super awakeFromNib];
+    
+    self.backgroundColor = CRGB(0, 0, 0, 0.3);
+    self.alpha = 0;
+    self.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backButtonAction)];
+    [self addGestureRecognizer:tap];
+    self.button1.superview.transform = CGAffineTransformMakeTranslation(0, [UIScreen mainScreen].bounds.size.height);
+    
+    [UIView animateWithDuration:.25 animations:^{
+        self.alpha = 1;
+        self.button1.superview.transform = CGAffineTransformMakeTranslation(0, 0);
+    }];
+    
+    [_button1 addTarget:self action:@selector(backButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+
+#pragma mark - 退出
+- (void)backButtonAction {
+    
+    [UIView animateWithDuration:.25 animations:^{
+        self.alpha = 0;
+        self.button1.superview.transform = CGAffineTransformMakeTranslation(0, [UIScreen mainScreen].bounds.size.height);
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
+    
+}
+
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>ABAAEB1B-EEF7-433E-A965-AF930477F717</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xib提示窗</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

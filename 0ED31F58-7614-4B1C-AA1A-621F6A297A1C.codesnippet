@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccbanner</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+#pragma mark - 获取轮播
+- (void)loadBannerAction {
+    
+    NSString *method = [NSString stringWithFormat:@"GetRotateImageList"];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         @"0",@"ShowWay",
+                         nil];
+    
+    //GetRotateImageList
+    //[91]系统 =&gt;轮播图片
+    //ShowWay:显示位置（0--首页轮播图
+    
+    //发送soap请求
+    [SOAPUrlSession SOAPDataWithMethod:method parameter:dic success:^(id responseObject) {
+        
+        
+        NSNumber *responseCode = responseObject[@"Code"];
+        
+        if ([responseCode isEqualToNumber:@200]) {
+            
+            __block NSArray *list = responseObject[@"Data"];
+            NSMutableArray *images = [NSMutableArray array];
+            for (NSDictionary *dic in list) {
+                NSString *path = [NSString stringWithFormat:@"%@%@", Image_Base_URL, dic[@"ImageFilePath"]];
+                [images addObject:path];
+            }
+            
+            header.bannerView.imageURLStringsGroup = images;
+            
+            __weak typeof(self) weakSelf = self;
+            header.bannerView.clickItemOperationBlock = ^(NSInteger currentIndex) {
+                
+                NSDictionary *dic = list[currentIndex];
+                if (![dic[@"IsExternalLink"] isEqual:@0] &amp;&amp; ![dic[@"ObjectValue"] isEqualToString:@""]) {
+                    
+                    WebForCommonViewController *ctrl = [[WebForCommonViewController alloc] init];
+                    ctrl.urlString = [NSString stringWithFormat:@"%@%@", H5_URL, dic[@"ObjectValue"]];
+                    ctrl.naviTitle = dic[@"ImageName"];
+                    [weakSelf.navigationController pushViewController:ctrl animated:YES];
+                    
+                }
+                
+            };
+            
+            
+        } else {
+            
+            header.bannerView.imageURLStringsGroup = nil;
+            
+            
+            
+        }
+    } failure:^(NSError *error) {
+        
+        SVP_ERROR(@"网络异常：连接服务器失败")
+        
+    }];
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>0ED31F58-7614-4B1C-AA1A-621F6A297A1C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>获取轮播网络请求</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

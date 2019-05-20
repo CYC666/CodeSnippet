@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccbanner</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    NSArray *images = @[@"https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1532685258546&amp;di=b1b7a68372521faa21712e5bf1447728&amp;imgtype=0&amp;src=http%3A%2F%2Fpic.meirishentie.com%2Fpicture%2F10057%2F100571350%2Fmedium%2F100571350.gif",
+                        @"https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1532685294680&amp;di=e340f75857027b78edbdf4b832f8ac60&amp;imgtype=0&amp;src=http%3A%2F%2Fimage07.71.net%2Fimage07%2F83%2F74%2F87%2F61%2Fa8f85c57-20ad-49d9-bc02-b1fcf25ade65.jpg",
+                        @"https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1532684673822&amp;di=4ffb4570633f7ee5ff8bd34328962b1f&amp;imgtype=0&amp;src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F011bc95a1e1879a80120908dc24ba7.jpg%401280w_1l_2o_100sh.jpg"];
+    
+    banner.imageURLStringsGroup = images;
+    banner.showPageView = NO;
+    banner.autoScrollTimeInterval = 5;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>615AF0D6-D0F2-4530-BE90-DB1F54133025</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>轮播图预放</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

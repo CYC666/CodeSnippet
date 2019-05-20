@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccnavbaritem</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// 导航栏右边的添加按钮
+self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:&lt;#title#&gt; style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonAction:)];
+
+self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"&lt;#name#&gt;"] style:UIBarButtonItemStylePlain target:self action:@selector(&lt;#selector#&gt;)];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>2CF52891-0827-481D-8FDE-357A0022D23E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>导航栏右边的按钮</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

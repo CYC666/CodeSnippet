@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>cctableview</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>listTableView = UITableView(frame: CGRect(x: 0, y: 64, width: kScreenWidth, height: kScreenHeight - 64), style: UITableViewStyle.plain)
+        listTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        listTableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        listTableView.backgroundColor = UIColor.white
+        listTableView.register(UINib(nibName: "CityListCell", bundle: Bundle.main), forCellReuseIdentifier: "CityListCell")
+        listTableView.delegate = self
+        listTableView.dataSource = self
+        view.addSubview(listTableView)</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>6037772D-54A7-43CF-963B-0C0E2B06DD07</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Swift 表视图</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccbutton</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>&lt;#button#&gt; = [UIButton buttonWithType:UIButtonTypeCustom];
+&lt;#button#&gt;.frame = CGRectMake(&lt;#X#&gt;, &lt;#Y#&gt;, &lt;#width#&gt;, &lt;#height#&gt;);
+    [&lt;#button#&gt; setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+[&lt;#button#&gt; addTarget:self action:@selector(&lt;#方法名#&gt;) forControlEvents:UIControlEventTouchUpInside];
+    [_navView addSubview:&lt;#button#&gt;];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9A1CA0AD-BD38-418C-B261-6066A491ECE0</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Button</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

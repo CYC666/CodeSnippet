@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccwmpage</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (instancetype)init {
+    self = [super init];
+    if (self) {
+        
+        self.menuItemWidth = 60;
+        self.menuViewStyle = WMMenuViewStyleLine;
+        self.titleSizeSelected = 15.0;
+        self.titleSizeNormal = 14.0;
+        self.titleColorSelected = Publie_Color;
+        self.titleColorNormal = Label_Color_A;
+        self.menuHeight = 38;
+        self.progressHeight = 3;
+        self.progressWidth = 23;
+        self.viewFrame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        self.progressColor = Publie_Color;
+        self.menuBGColor = [UIColor whiteColor];
+        self.progressViewIsNaughty = YES;
+        self.progressViewCornerRadius = 1;
+        
+    }
+    return self;
+}
+
+- (NSArray&lt;NSString *&gt; *)titles {
+    return @[@"微信", @"支付宝", @"银行卡"];
+}
+
+#pragma mark ========================================动作响应=============================================
+
+
+#pragma mark ========================================网络请求=============================================
+
+
+
+#pragma mark ========================================代理方法=============================================
+
+- (NSInteger)numbersOfChildControllersInPageController:(WMPageController *)pageController {
+    return self.titles.count;
+}
+
+- (NSString *)pageController:(WMPageController *)pageController titleAtIndex:(NSInteger)index {
+    return self.titles[index];
+}
+
+
+- (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
+    
+    return [UIViewController new];
+    
+    
+    
+}
+
+- (void)pageController:(WMPageController *)pageController didEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
+    
+    
+    
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>50616F9E-2DB2-4D18-AF76-851843EEAC1F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>初始化WMPageController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

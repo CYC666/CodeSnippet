@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccpch</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//-----------------安全高度、导航栏高度、标签栏高度---------------------适配iPhone X
+#define Nav_Start_Y (kScreenHeight == 812 ? 24 : 0)
+#define Nav_Height (kScreenHeight == 812 ? 88 : 64)
+#define TabBar_Height (kScreenHeight == 812 ? 83 : 49)</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>42FBF446-432F-4EDD-837F-E5DE11B05A39</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>pch文件适配iPhone X</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

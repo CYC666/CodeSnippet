@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccdingyue</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>[SOAPUrlSession setDingActionWithMwsub_wsid:model.mwsub_webid       // 网站id
+                                       mwsub_id:model.mwsub_id          // 订阅id
+                                art_subws_order:art_subws_order
+                                        success:^(id responseObject) {
+                                            
+                                            NSString *responseCode = [NSString stringWithFormat:@"%@",responseObject[@"code"]];
+                                            NSString *msg = [NSString stringWithFormat:@"%@",responseObject[@"msg"]];
+                                            
+                                            if ([responseCode isEqualToString:@"0"]) {
+                                                
+                                                NSString *iconflg = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"iconflg"]];
+                                                if (iconflg.integerValue == 0) {
+                                                    
+                                                    // 取消成功
+                                                    model.mwsub_id = @"&lt;null&gt;";
+                                                    
+                                                } else {
+                                                    
+                                                    // 收藏成功
+                                                    model.mwsub_id = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"resultid"]];
+                                                }
+                                                
+                                                //主线程更新视图
+                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                    
+                                                    [_listTableView reloadData];
+                                                    
+                                                });
+                                                
+                                            } else if ([msg isEqualToString:@"此操作必须登录"]) {
+                                                
+                                                //主线程更新视图
+                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                        
+                                                    // 清除数据
+                                                    [userInfo clearData];
+                                                    
+                                                    // 跳转登录页面
+                                                    LoginViewController *ctrl = [[LoginViewController alloc] init];
+                                                    [self.navigationController pushViewController:ctrl animated:YES];
+                                                    
+                                                });
+                                                
+                                            }
+                                            
+                                            
+                                            
+                                            
+                                        } failure:^(NSError *error) {
+                                            
+                                            //主线程更新视图
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                
+                                                FadeAlertView *showMessage = [[FadeAlertView alloc] init];
+                                                [showMessage showAlertWith:@"请求失败"];
+                                                
+                                            });
+                                            
+                                        }];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>1C141431-BCA9-4A0E-8B95-19A7E1FCA46C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>订阅</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

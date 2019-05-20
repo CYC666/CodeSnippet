@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccpay</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//订单号
+            NSString *tradeNO = responseObject[@"Data"][@"SerialNumber"];
+            orderID = tradeNO;
+            //金额
+            NSString *rechargeMoney = responseObject[@"Data"][@"OperateValue"];
+            money = rechargeMoney;
+            //私钥
+            NSString *privateKey = [NSString stringWithFormat:@"%@", responseObject[@"Data"][@"PrivateKey"]];
+            //后台服务器回调地址
+            NSString *notifyURL = [NSString stringWithFormat:@"%@", responseObject[@"Data"][@"NotifyUrl"]];
+
+            //执行支付宝支付功能，发送信息给支付宝服务端
+            [self rechargeByAlipay:[rechargeMoney floatValue] andTradeNO:tradeNO andNotifyURL:notifyURL andPrivateKey:privateKey];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>8CB68A4E-C49C-439D-98CA-2178B9A68855</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>支付-Alipay</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

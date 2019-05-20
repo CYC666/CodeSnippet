@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccuserinfo</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+#pragma mark - 获取用户信息
+- (void)loadUserInfoAction {
+    
+    //GetEntityUser
+    //[11]个人中心 =&gt; 获取用户基本信息(输入参数string Json)
+    //UserId:用户编号
+    
+    NSString *method = [NSString stringWithFormat:@"GetEntityUser"];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         kUserInfo.UserId,@"UserId",
+                         nil];
+    
+    self.view.userInteractionEnabled = NO;  // 关闭点击事件
+    [SOAPUrlSession SOAPDataWithMethod:method parameter:dic success:^(id responseObject) {
+        
+        
+        NSNumber *responseCode = responseObject[@"Code"];
+        
+        if ([responseCode isEqualToNumber:@200]) {
+            
+            
+            [UserInformation mj_objectWithKeyValues:responseObject[@"Data"]];
+            
+            
+        } else {
+            
+            SVP_ERROR(responseObject[@"Message"])
+            
+            
+            
+        }
+        self.view.userInteractionEnabled = YES;  // 恢复点击事件
+        SVP_DISMISS
+    } failure:^(NSError *error) {
+        
+        self.view.userInteractionEnabled = YES;  // 恢复点击事件
+        SVP_ERROR(@"网络异常：连接服务器失败")
+        
+    }];
+    
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>CFAE386A-B0EF-4B19-90E4-D4D839FA66DE</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>获取用户信息网络请求方法</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

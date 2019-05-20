@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>cctip</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (WithdrawTipView *)tipView {
+    
+    if (!_tipView) {
+        _tipView = [[WithdrawTipView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight)];
+        [[UIApplication sharedApplication].keyWindow addSubview:_tipView];
+        
+        // 按钮
+        [_tipView.button1 addAction:^(NSInteger index) {
+            [UIView animateWithDuration:.35 animations:^{
+                _tipView.transform = CGAffineTransformMakeTranslation(0, 0);
+                self.tabBarController.view.alpha = 1;
+            } completion:^(BOOL finished) {
+            }];
+        }];
+        
+        [_tipView.button2 addAction:^(NSInteger index) {
+            
+            // 继续
+            [self sureAction];
+            
+            [UIView animateWithDuration:.35 animations:^{
+                _tipView.transform = CGAffineTransformMakeTranslation(0, 0);
+                self.tabBarController.view.alpha = 1;
+            } completion:^(BOOL finished) {
+                
+            }];
+        }];
+        
+    }
+    
+    // 出现
+    [UIView animateWithDuration:.35 animations:^{
+        _tipView.transform = CGAffineTransformMakeTranslation(0, -kScreenHeight);
+        self.tabBarController.view.alpha = 0.5;
+    }];
+    
+    
+    return _tipView;
+    
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>42755A80-CF99-49AA-A7E6-93DE9625B21A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>弹出全屏提示页</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

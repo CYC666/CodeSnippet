@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccatributed</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>NSString *text = [NSString stringWithFormat:@" 当前城市 %@", city.name];
+                NSTextAttachment * attach= [[NSTextAttachment alloc] init];
+                attach.image = [UIImage imageNamed:@"city_add_black"];
+                attach.bounds = CGRectMake(0, -1, 10, 12);
+                NSAttributedString *att = [NSAttributedString attributedStringWithAttachment:attach];
+                NSMutableAttributedString *mutableAtt  = [[NSMutableAttributedString alloc] initWithString:text];
+                [mutableAtt insertAttributedString:att atIndex:0];
+                cell.name.attributedText = mutableAtt;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>023DED2B-6865-4060-8532-E1BE316845C8</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>图文混排</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccnet</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>ModelAFNetworking *request=[ModelAFNetworking shareAFNetwork];
+    [request PostTokenRequestAction:@"assets/eosAccountInfo" AndDictionary:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSDictionary *resultsDic=(NSDictionary*)responseObject;
+        if ([[NSString stringWithFormat:@"%@",[resultsDic objectForKey:@"code"]]isEqualToString:@"200"]) {
+            
+            
+            
+        }else{
+            SHOW_ERROR(@"operation failed")
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        SHOW_ERROR(@"network_can_not_use_please_check")
+        
+    }];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>D1623431-679B-4749-B38A-CC55F5B212CB</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>CWC网络请求</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

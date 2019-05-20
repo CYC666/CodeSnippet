@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccpay</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//将AlipayCallbackDelegate委托协议的委托对象赋值给当前的view，
+    //由于AlipayCallbackManager是单例对象，因此委托对象将只有这一个，这样在AppDelegate中执行委托方法将能够定位到当前的view来
+    [AlipayCallbackManager sharedManager].delegate = self;
+    
+    //注册微信支付的AppID
+    [WXApi registerApp:@"wxb20c3c60ce07cef2"];
+    [WXApiManager sharedManager].delegate = self;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>46633544-4A74-4EA0-BFAC-3873E7633DD2</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>支付-初始化</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

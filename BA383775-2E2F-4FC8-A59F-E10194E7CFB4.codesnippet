@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccnet</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>NSDictionary *dic = @{@"platform" : @"1"    
+};
+
+SHOW_INFO(RCDLocalizedString(@"Loading"))
+[CNetwork POST:dic method:@"upgrade/check" enable:YES success:^(id  _Nonnull obj) {
+    
+    NSString *code = [NSString stringWithFormat:@"%@", obj[@"code"]];
+    
+    if ([code isEqualToString:@"200"]) {
+        
+        
+        
+    } else {
+        
+        [CNetwork showErrorWithCode:code];
+        
+    }
+    
+} failse:^(id  _Nonnull obj) {
+    
+    SHOW_ERROR(RCDLocalizedString(@"network_can_not_use_please_check"))
+    
+    }];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>BA383775-2E2F-4FC8-A59F-E10194E7CFB4</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>银河社区网络请求</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

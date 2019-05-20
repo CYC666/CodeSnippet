@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//创建CATransition对象
+    CATransition *animation = [CATransition animation];
+    
+    [resoucesListView resoucesListTableViewReshowWithType:isRankB];
+    
+    //设置时间
+    animation.duration = 0.5f;
+    
+    //设置类型
+    animation.type = @"oglFlip";
+    
+    animation.subtype = kCATransitionFromRight;
+    
+    //设置运动速度变化
+    animation.timingFunction = UIViewAnimationOptionCurveEaseInOut;
+    
+    [resoucesListView.layer addAnimation:animation forKey:@"animation"];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>972DFB78-B2E9-4E8A-A85F-9321BA5AAC70</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>My Code Snippet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccpay</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+#pragma mark - 集成支付宝支付的功能（来自官方demo）
+- (void)rechargeByAlipay:(float)rechargeMoney andTradeNO:(NSString *)tradeNO andNotifyURL:(NSString *)notifyURL andPrivateKey:(NSString *)privateKey{
+    
+    /*
+     *商户的唯一的parnter和seller。
+     *签约后，支付宝会为每个商户分配一个唯一的 parnter 和 seller。
+     */
+    
+    /*============================================================================*/
+    /*=======================需要填写商户app申请的===================================*/
+    /*============================================================================*/
+    NSString *partner = @"2088002408041584";
+    NSString *seller = @"229809984@qq.com";
+    //    NSString *privateKey = privateKey;
+    /*============================================================================*/
+    /*============================================================================*/
+    /*============================================================================*/
+    
+    //partner和seller获取失败,提示
+    if ([partner length] == 0 || [seller length] == 0 || [privateKey length] == 0){
+        //弹窗提示
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"缺少partner或者seller或者私钥。" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *defaultButton = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:defaultButton];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        return;
+    }
+    
+    
+    /*
+     *生成订单信息及签名
+     */
+    //将商品信息赋予AlixPayOrder的成员变量
+    Order *order = [[Order alloc] init];
+    order.partner = partner;
+    order.sellerID = seller;
+    order.outTradeNO = tradeNO;                                 //订单ID（由商家自行制定）
+    
+    order.subject = @"商城下单";                               //商品标题
+    order.body = @"深圳印掌门科技有限公司";                      //商品描述
+    
+    order.totalFee = [NSString stringWithFormat:@"%.2f",rechargeMoney];  //商品价格 CYC666
+    order.notifyURL =  notifyURL; //回调URL
+    
+    order.service = @"mobile.securitypay.pay";
+    order.paymentType = @"1";
+    order.inputCharset = @"utf-8";
+    order.itBPay = @"30m";
+    order.showURL = @"m.alipay.com";
+    
+    //应用注册scheme,在AlixPayDemo-Info.plist定义URL types
+    NSString *appScheme = @"ap2018103161955770";
+    
+    //将商品信息拼接成字符串
+    NSString *orderSpec = [order description];
+    NSLog(@"orderSpec = %@",orderSpec);
+    
+    //获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循RSA签名规范,并将签名字符串base64编码和UrlEncode
+    id&lt;DataSigner&gt; signer = CreateRSADataSigner(privateKey);
+    NSString *signedString = [signer signString:orderSpec];
+    
+    //将签名成功字符串格式化为订单字符串,请严格按照该格式
+    NSString *orderString = nil;
+    if (signedString != nil) {
+        orderString = [NSString stringWithFormat:@"%@&amp;sign=\"%@\"&amp;sign_type=\"%@\"",
+                       orderSpec, signedString, @"RSA"];
+        
+        /*
+         * 如果手机内没安装支付宝的app，会直接展现支付宝web支付界面，通过callback返回支付结果；
+         * 如果手机内安装了支付宝的app，会跳转到支付宝的app支付，然后通过openURL的回调返回支付结果。
+         */
+        
+        
+        [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+            
+            //结果处理
+            NSLog(@"reslut = %@",resultDic);
+            
+            //微信回调相关的委托，给到一个单例的WXApiManager对象
+            [AlipayCallbackManager sharedManager];
+            [[AlipayCallbackManager sharedManager] alipayCallbackAndShowAlter:resultDic];
+            
+        }];
+    }
+    
+}
+
+
+#pragma mark - AlipayCallbackDelegate委托方法
+//弹出支付后的提示
+- (void)managerAlipayCallbackToAlter:(BOOL)isSuccess money:(NSString *)money message:(NSString *)message{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        PaymentResultsignViewController *vc=[[PaymentResultsignViewController alloc]initWithNibName:@"PaymentResultsignViewController" bundle:nil];
+        vc.flogSuccess=!isSuccess;//yes表示支付失败了
+        vc.sellingprice=money;//价格
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    });
+    
+}
+
+
+
+
+#pragma mark - WXApiManagerDelegate委托方法
+//弹出支付后的提示
+- (void)managerWeixinPayCallbackToAlter:(BOOL)isSuccess money:(NSString *)money message:(NSString *)message{
+    
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        PaymentResultsignViewController *vc=[[PaymentResultsignViewController alloc]initWithNibName:@"PaymentResultsignViewController" bundle:nil];
+        vc.flogSuccess=!isSuccess;//yes表示支付失败了
+        vc.sellingprice=money;//价格
+        [self.navigationController pushViewController:vc animated:YES];
+    });
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>559CFC6F-6EAC-484A-ADA2-C2AA9197A842</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>支付-代理方法</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
