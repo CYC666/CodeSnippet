@@ -3,19 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>cclabel</string>
+	<string>cctxl</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (weak, nonatomic) IBOutlet UILabel *label;</string>
+	<string>&lt;CNContactPickerDelegate&gt;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>9EB73465-61EE-4412-AFF1-D81D354AC64E</string>
+	<string>974ADFA1-48A5-4A3C-9F58-25EF100E4495</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>xib关联label</string>
+	<string>通讯录代理</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

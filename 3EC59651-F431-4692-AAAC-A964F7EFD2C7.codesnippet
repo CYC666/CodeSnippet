@@ -9,29 +9,15 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>/**&lt; 初始化colorsView */
-    UIView *colorsView = [[UIView alloc] init];
-    colorsView.frame = CGRectMake(0, 64, kScreenWidth, kScreenWidth);
-    [self.view addSubview:colorsView];
-    
-    /**&lt; 初始化渐变层 */
-    CAGradientLayer *gradientColorLayer = [CAGradientLayer layer];
-    gradientColorLayer.frame = colorsView.bounds;
-    [colorsView.layer addSublayer:gradientColorLayer];
-    
-    /**&lt; 设置颜色组 */
-    gradientColorLayer.colors = @[(__bridge id)[UIColor redColor].CGColor,
-                                  (__bridge id)[UIColor blueColor].CGColor];
-    
-    /**&lt; 设置颜色分割点 */
-    gradientColorLayer.locations  = @[@(0.5)];
-    
-    
-    /**&lt; 设置渐变颜色方向 */
-    // 1、起始位置
-    gradientColorLayer.startPoint = CGPointMake(0, 0);
-    // 2、结束位置
-    gradientColorLayer.endPoint   = CGPointMake(1, 0);</string>
+	<string>/**&lt; 初始化渐变层 */
+CAGradientLayer *gradientColorLayer2 = [CAGradientLayer layer];
+gradientColorLayer2.frame = _button3.bounds;
+[_button3.layer insertSublayer:gradientColorLayer2 atIndex:0];
+gradientColorLayer2.colors = @[(__bridge id)Button_Color_Left.CGColor,
+(__bridge id)Button_Color_Right.CGColor];
+gradientColorLayer2.locations  = @[@(0.5)];
+gradientColorLayer2.startPoint = CGPointMake(0, 0);
+gradientColorLayer2.endPoint   = CGPointMake(1, 0);</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>3EC59651-F431-4692-AAAC-A964F7EFD2C7</string>
 	<key>IDECodeSnippetLanguage</key>

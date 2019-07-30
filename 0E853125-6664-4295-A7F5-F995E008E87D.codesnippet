@@ -3,19 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>cclabel</string>
+	<string>ccges</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (weak, nonatomic) IBOutlet UILabel *label;</string>
+	<string>#pragma mark - 侧滑返回
+- (void)edgePanAction:(UIScreenEdgePanGestureRecognizer *)edgePan {
+    
+    if (edgePan.state == UIGestureRecognizerStateEnded) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>9EB73465-61EE-4412-AFF1-D81D354AC64E</string>
+	<string>0E853125-6664-4295-A7F5-F995E008E87D</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>xib关联label</string>
+	<string>屏幕边缘手势-实现</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

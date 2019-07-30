@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ccbutton</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>UIButton *buttonUP = [UIButton buttonWithType:UIButtonTypeCustom];
+cButTitle(buttonUP, RCDLocalizedString(@"&lt;#name#&gt;"))
+    buttonUP.titleLabel.font = cFontA;
+    [buttonUP setTitleColor:cLabColA forState:UIControlStateNormal];
+    [buttonUP addTarget:self action:@selector(buttonTypeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [buttonView addSubview:buttonUP];
+    [buttonUP mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(kLargePadding);
+        make.top.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+    }];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4E086CAD-8BF8-411F-84AF-C3DA6F6BB273</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>创建按钮</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

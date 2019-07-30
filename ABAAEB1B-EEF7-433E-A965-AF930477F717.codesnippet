@@ -24,9 +24,6 @@
     
     self.backgroundColor = CRGB(0, 0, 0, 0.3);
     self.alpha = 0;
-    self.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backButtonAction)];
-    [self addGestureRecognizer:tap];
     self.button1.superview.transform = CGAffineTransformMakeTranslation(0, [UIScreen mainScreen].bounds.size.height);
     
     [UIView animateWithDuration:.25 animations:^{
@@ -46,6 +43,11 @@
         self.alpha = 0;
         self.button1.superview.transform = CGAffineTransformMakeTranslation(0, [UIScreen mainScreen].bounds.size.height);
     } completion:^(BOOL finished) {
+        
+        if (_selectBlock) {
+            _selectBlock();
+        }
+        
         [self removeFromSuperview];
     }];
     

@@ -3,19 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>cclabel</string>
+	<string>ccmap</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (weak, nonatomic) IBOutlet UILabel *label;</string>
+	<string>#import &lt;MapKit/MapKit.h&gt;
+#import &lt;CoreLocation/CoreLocation.h&gt;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>9EB73465-61EE-4412-AFF1-D81D354AC64E</string>
+	<string>1BE67258-28F8-4122-9392-2EF333C36B38</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>xib关联label</string>
+	<string>打开地图-导入</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

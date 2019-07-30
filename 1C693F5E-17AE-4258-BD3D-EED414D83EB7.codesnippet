@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>NSString *text = [NSString stringWithFormat:@"%@ ", RCDLocalizedString(@"Collection")];
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:text];
+    [string addAttribute:NSForegroundColorAttributeName value:cWhiteColor range:NSMakeRange(0, text.length)];
+    [string addAttribute:NSFontAttributeName value:cFontE range:NSMakeRange(0, text.length)];
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil];
+    textAttachment.image = [UIImage imageNamed:@"rollinto-down"];
+    textAttachment.bounds =CGRectMake(0,0, 11,13);
+    NSAttributedString * textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+    [string appendAttributedString:textAttachmentString];
+    [rollintoBtn setAttributedTitle:string forState:UIControlStateNormal];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>1C693F5E-17AE-4258-BD3D-EED414D83EB7</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>富文本-图文混排</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

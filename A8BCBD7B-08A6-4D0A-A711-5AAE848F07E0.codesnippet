@@ -28,12 +28,12 @@ dispatch_async(dispatch_get_main_queue(), ^{
             [view addSubview:noDataImage];
             [_listTableView addSubview:view];
             
-            objc_setAssociatedObject(self, @"cycNoData", view, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            objc_setAssociatedObject(_listTableView, @"cycNoData", view, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
         
     } else {
     
-        UIView *cycNoData = objc_getAssociatedObject(self, @"cycNoData");
+        UIView *cycNoData = objc_getAssociatedObject(_listTableView, @"cycNoData");
         if (cycNoData) {
             [cycNoData removeFromSuperview];
             cycNoData = nil;

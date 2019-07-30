@@ -3,19 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>ccpaste</string>
+	<string>ccbutton</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[UIPasteboard generalPasteboard].string = &lt;#text#&gt;;</string>
+	<string>@property (weak, nonatomic) IBOutlet UIButton *button1;     // 
+@property (weak, nonatomic) IBOutlet UIButton *button2;     // 
+@property (weak, nonatomic) IBOutlet UIButton *button3;     // 
+@property (weak, nonatomic) IBOutlet UIButton *button4;     // 
+@property (weak, nonatomic) IBOutlet UIButton *button5;     // 
+@property (weak, nonatomic) IBOutlet UIButton *button6;     // </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>4BCDBC3E-B1FB-4B2E-A5DB-DF34DD4ECA3C</string>
+	<string>3D44E4F4-0BC1-4361-9042-DAA72E324B9D</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Generic</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>拷贝到粘贴板</string>
+	<string>xib创建很多个button</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

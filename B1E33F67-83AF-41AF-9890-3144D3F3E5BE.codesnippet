@@ -3,19 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>yytimer</string>
+	<string>cctimer</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (strong, nonatomic) YYTimer *timer;</string>
+	<string>@property (strong, nonatomic) CTimer *timer;</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>B1E33F67-83AF-41AF-9890-3144D3F3E5BE</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Generic</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>创建YYTimer</string>
+	<string>创建CTimer</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

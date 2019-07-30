@@ -9,8 +9,7 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//主线程更新视图
-            dispatch_async(dispatch_get_main_queue(), ^{
+	<string>            dispatch_async(dispatch_get_main_queue(), ^{
                 
                 &lt;#操作#&gt;
                 

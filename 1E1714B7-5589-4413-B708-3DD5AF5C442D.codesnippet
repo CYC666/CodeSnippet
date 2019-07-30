@@ -13,7 +13,7 @@
     
     [super viewWillDisappear:animated];
     
-    SVP_DISMISS
+    SHOW_DISMISS
     
     
 }</string>
